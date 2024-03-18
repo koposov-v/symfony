@@ -1,23 +1,11 @@
 version: '3.8'
 services:
-  nginx:
-    build: docker/nginx
-    container_name: nginx_blog
-    ports:
-      - "7080:80"
-    volumes:
-      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - blog_net
   php:
     container_name: php_blog
     build:
       context: .
       dockerfile: docker/php/Dockerfile
-
-    networks:
-      - blog_net
+    ports:
+      - "8000:8000"
     volumes:
       - ./:/app
-networks:
-  blog_net:
