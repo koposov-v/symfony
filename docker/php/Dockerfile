@@ -35,4 +35,4 @@ RUN useradd -m koposov_v && echo "koposov_v:koposov_v" | chpasswd && adduser kop
 USER koposov_v
 
 EXPOSE 8000
-CMD symfony server:start
+CMD ["symfony", "server:start"]
